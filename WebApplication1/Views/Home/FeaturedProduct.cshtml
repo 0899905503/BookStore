@@ -1,0 +1,94 @@
+﻿@using WebApplication1.Model
+@{
+
+    var list = ViewData["Sachnauan"] as List<Sach>;
+}
+
+<!-- FB's customer Support Area End Here -->
+<!-- Begin FB's Product Three | Home Three Area -->
+<div class="fb-product_wrap-3">
+    <div class="container">
+        <div class="row">
+            <!-- Begin FB's Single Product Slide Wrap Area -->
+            <div class="col-lg-12">
+                <div class="fb-section_title-2">
+                    <h2>Sách nấu ăn</h2>
+                </div>
+                <div class="fb-single-product-slide_wrap bg-white mb-30">
+                   
+                    <div class="fb-product_active-3 owl-carousel">
+                        <!-- Begin Sigle Product Area -->
+                        @if(list!=null){
+                        @foreach (var item in list){
+                            <div class="single-product">
+                                <!-- Begin Product Image Area -->
+                                <div class="product-img">
+                                        <a href="@Url.Action("ChitietBookTE","Home", new { id=item.Id })">
+                                        <img class="primary-img" src="~/Content/assets/images/sach/@item.Hinhanh" alt="FB'S Prduct">
+                                        <img class="secondary-img" src="~/Content/assets/images/sach/@item.Hinhanh" alt="FB'S Prduct">
+                                    </a>
+                                    <div class="sticker"><span>New</span></div>
+                                </div>
+                                <!-- Product Image Area End Here -->
+                                <!-- Begin Product Content Area -->
+                                    <li class="single-product_link">
+                                    
+                                    </li>
+                                <div class="product-content">
+                                    <h2 class="product-name">
+                                            <a href="@Url.Action("ChitietBookTE","Home", new { @Id=item.Id })">@item.Ten</a>
+                                    </h2>
+                                    <div class="rating-box">
+                                        <ul class="rating">
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li class="no-star"><i class="fa fa-star"></i></li>
+                                        </ul>
+                                    </div>
+                                    <div class="price-box">
+                                        <span class="new-price">$16.40</span>
+                                        <span class="old-price">$20.50</span>
+                                    </div>
+                                    <div class="product-action">
+                                        <ul class="product-action-link">
+
+                                            <li class="shopping-cart_link"><a href="cart.html" title="Shopping Cart"><i class="ion-bag"></i></a></li>
+                                            <li class="quick-view-btn"><a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="ion-eye"></i></a></li>
+                                            <li class="single-product_link"><a href="single-product.html" title="Single Product"><i class="ion-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Product Content Area End Here -->
+                            </div>
+                        }
+                        }
+
+                       
+                    </div>
+                </div>
+            </div>
+            <!-- Single Product Slide Area End Here -->
+        </div>
+    </div>
+</div>
+<!-- FB's Product Three | Home Three Area End Here -->
+<!-- Begin FB's Banner Wrap Area -->
+<div class="fb-banner_wrap">
+    <div class="container">
+        <div class="row">
+            <!-- Begin FB's Banner Area -->
+            <div class="col-lg-12">
+                <div class="fb-banner fb-img-hover-effect pb-sm-30 pb-xs-30">
+                    <a href="#">
+                        <img src="~/Content/assets/images/banner/3_4.jpg" alt="FB'S Banner">
+                    </a>
+                </div>
+            </div>
+            <!-- FB's Banner Area End Here -->
+        </div>
+    </div>
+</div>
+<!-- FB's Banner Wrap Area End Here -->
+<!-- Begin FB's Banner With List Product Area -->

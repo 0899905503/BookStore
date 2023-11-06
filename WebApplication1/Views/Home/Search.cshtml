@@ -1,0 +1,11 @@
+﻿@using WebApplication1.Model;
+@model Sach;
+@{
+    ViewBag.Title = "SearchFE";
+    Layout = "~/Views/Layout/_LayoutUser.cshtml";
+    var list = ViewData["Search"] as List<Sach>;
+}
+@if(list!=null){
+
+<h1>@list[0].Ten</h1>
+}
