@@ -5,7 +5,6 @@ namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
-        private  BookContext _context=new BookContext();
 
         public HomeController()
         {
@@ -16,13 +15,12 @@ namespace WebApplication1.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Index";
-            ViewData["Sachnauan"] = _context.Sachs.Where(x=>x.Maloaisach==2).ToList();
-            ViewData["Sachtreem"]=_context.Sachs.Where(x=>x.Maloaisach==1).ToList();
-            ViewData["Comicbook"]=_context.Sachs.Where(x=>x.Maloaisach==3).ToList();
+            ViewData["Sachnauan"]=Database.dbContext.Sachs.Where(x=>x.Maloaisach==2).ToList();
+            ViewData["Sachtreem"]=Database.dbContext.Sachs.Where(x=>x.Maloaisach==1).ToList();
+            ViewData["Comicbook"]=Database.dbContext.Sachs.Where(x=>x.Maloaisach==3).ToList();
             return View();
             
         }
-
 
         public ActionResult ChitietBookTE(int id)
         {
@@ -34,9 +32,9 @@ namespace WebApplication1.Controllers
                 Response.StatusCode = 404;
                 return null;
             }
-            Sach sach=_context.Sachs.Find(id);
-            ViewData["SachFE"] = _context.Sachs.SingleOrDefault(x=>x.Id==id);
-            ViewData["SachFEcungloai"]=_context.Sachs.Where(x=>x.Maloaisach==sach.Maloaisach).ToList();
+            Sach sach=Database.dbContext.Sachs.Find(id);
+            ViewData["SachFE"] = Database.dbContext.Sachs.SingleOrDefault(x=>x.Id==id);
+            ViewData["SachFEcungloai"]=Database.dbContext.Sachs.Where(x=>x.Maloaisach==sach.Maloaisach).ToList();
             return View();
         }
 
@@ -46,7 +44,7 @@ namespace WebApplication1.Controllers
             ViewBag.Title = "SearchFE";
 
             String name = HttpContext.Request.Form["Search"].ToString();
-                List<Sach> sach = _context.Sachs.Where(x => x.Ten == name).ToList();
+                List<Sach> sach = Database.dbContext.Sachs.Where(x => x.Ten == name).ToList();
             ViewData["Search"] =name ;
                 return View();
             

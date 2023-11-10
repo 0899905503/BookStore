@@ -5,8 +5,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<BookContext>(otp => otp.UseSqlServer("ConnectionStrings"));
-
+// builder.Services.AddDbContext<BookContext>(otp => otp.UseSqlServer("ConnectionStrings"));
+GlobalConfig.connectionString = builder.Configuration.GetConnectionString("SQLSERVER");
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
